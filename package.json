@@ -1,28 +1,29 @@
 {
   "name": "gatsby-transformer-open-graph",
-  "description": "",
+  "description": "Gatsby plugin to add Oepn Graph data to MarkdownRemark nodes",
   "version": "2.0.0-rc.1",
   "author": "Mike Gajda <gatsbyOpenGraph@mikegajda.com>",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/mikegajda/gatsby-transformer-open-graph"
   },
   "dependencies": {
     "better-queue": "^3.8.10",
     "got": "^9.2.0",
     "metascraper": "^4.2.0",
     "metascraper-author": "^4.2.0",
+    "metascraper-date": "^4.2.0",
     "metascraper-description": "^4.2.0",
     "metascraper-image": "^4.2.0",
     "metascraper-publisher": "^4.2.0",
     "metascraper-title": "^4.2.0",
-    "metascraper-url": "^4.2.0"
+    "metascraper-url": "^4.2.0",
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "cross-env": "^5.1.4"
   },
-  "homepage": "",
+  "homepage": "https://github.com/mikegajda/gatsby-transformer-open-graph",
   "keywords": [
     "gatsby",
     "gatsby-plugin",
@@ -33,7 +34,7 @@
   "peerDependencies": {
     "gatsby": ">2.0.0-alpha"
   },
-  "repository": "",
+  "repository": "https://github.com/mikegajda/gatsby-transformer-open-graph",
   "scripts": {
     "build": "babel src -w --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build",
