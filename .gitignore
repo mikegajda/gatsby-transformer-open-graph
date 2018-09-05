@@ -71,8 +71,3 @@ typings/
 
 # Serverless directories
 .serverless
-
-#gatsby
-gatsby-node.js
-
-!src/gatsby-node.js
