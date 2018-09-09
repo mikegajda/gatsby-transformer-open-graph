@@ -138,10 +138,10 @@ const createOpengraphNode = async ({
 
     const metadata = await getMetadata(targetUrl)
 
-    if (metadata.title === "Terms of Service Violation"){
-      console.log("ERROR Bloomberg TOS Violation, returning")
-      return
-    }
+    // if (metadata.title === "Terms of Service Violation"){
+    //   console.log("ERROR Bloomberg TOS Violation, returning")
+    //   return
+    // }
 
     //console.log("metadata = ", metadata)
 

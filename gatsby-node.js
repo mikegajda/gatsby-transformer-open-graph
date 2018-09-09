@@ -143,10 +143,10 @@ const createOpengraphNode = async ({
     const targetUrl = url;
     const metadata = await getMetadata(targetUrl);
 
-    // if (metadata.title === "Terms of Service Violation") {
-    //   console.log("ERROR Bloomberg TOS Violation, returning");
-    //   return;
-    // } //console.log("metadata = ", metadata)
+    if (metadata.title === "Terms of Service Violation") {
+      console.log("ERROR Bloomberg TOS Violation, returning");
+      return;
+    } //console.log("metadata = ", metadata)
 
 
     let fixedImageUrl = metadata.image;
@@ -163,10 +163,10 @@ const createOpengraphNode = async ({
       createNodeId
     });
 
-    // if (!fileNode) {
-    //   console.error(`Remote file node is null`, metadata.image);
-    //   return; // throw new Error(`Remote file node is null`, metadata.image)
-    // }
+    if (!fileNode) {
+      console.error(`Remote file node is null`, metadata.image);
+      return; // throw new Error(`Remote file node is null`, metadata.image)
+    }
 
     const opengraphNode = {
       id: createNodeId(`${parent} >>> Opengraph`),
