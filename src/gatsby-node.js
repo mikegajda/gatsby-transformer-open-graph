@@ -132,11 +132,18 @@ const createOpengraphNode = async ({
   createNodeId,
 }) => {
   try {
-    console.log('process opengraph data for = ', url)
+    console.log('TEST process opengraph data for = ', url)
 
     const targetUrl = url
 
     const metadata = await getMetadata(targetUrl)
+
+    if (metadata.title === "Terms of Service Violation"){
+      console.log("ERROR Bloomberg TOS Violation, returning")
+      return
+    }
+
+    //console.log("metadata = ", metadata)
 
     let fixedImageUrl = metadata.image
     if (metadata.image.includes('wsj')) {
@@ -152,7 +159,9 @@ const createOpengraphNode = async ({
     })
 
     if (!fileNode) {
-      throw new Error(`Remote file node is null`, metadata.image)
+      console.error(`Remote file node is null`, metadata.image)
+      return
+      // throw new Error(`Remote file node is null`, metadata.image)
     }
 
     const opengraphNode = {
@@ -161,7 +170,7 @@ const createOpengraphNode = async ({
       description: metadata.description,
       publisher: metadata.publisher,
       title: metadata.title,
-      data: metadata.data,
+      date: metadata.date,
       imageUrl: metadata.image,
       parent,
       children: [],

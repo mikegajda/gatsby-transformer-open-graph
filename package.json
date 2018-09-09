@@ -1,17 +1,18 @@
 {
   "name": "gatsby-transformer-open-graph",
   "description": "Gatsby plugin to add Oepn Graph data to MarkdownRemark nodes",
-  "version": "2.0.0-rc.3",
+  "version": "2.0.0",
   "author": "Mike Gajda <npm@mikegajda.com>",
   "bugs": {
     "url": "https://github.com/mikegajda/gatsby-transformer-open-graph"
   },
   "dependencies": {
     "better-queue": "^3.8.10",
+    "gatsby-source-filesystem": "^1.5.39",
     "got": "^9.2.0",
     "metascraper": "^4.2.0",
     "metascraper-author": "^4.2.0",
-    "metascraper-date": "^4.2.0",
+    "metascraper-date": "^4.3.2",
     "metascraper-description": "^4.2.0",
     "metascraper-image": "^4.2.0",
     "metascraper-publisher": "^4.2.0",
