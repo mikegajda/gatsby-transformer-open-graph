@@ -124,10 +124,15 @@ exports.onCreateNode = async ({
       reject(e);
     });
   });
-  createParentChildLink({
-    parent: node,
-    child: opengraphNode
-  });
+
+  if (opengraphNode && opengraphNode.id) {
+    createParentChildLink({
+      parent: node,
+      child: opengraphNode
+    });
+  } else {
+    return;
+  }
 };
 
 const createOpengraphNode = async ({
@@ -185,6 +190,6 @@ const createOpengraphNode = async ({
     createNode(opengraphNode);
     return opengraphNode;
   } catch (e) {
-    console.log(`Failed to opengraph ${url} due to ${e}. Will skip this article...`); //throw e
+    console.log(`Failed to opengraph ${url} due to ${e}. Will skip OpenGraph for this article...`); //throw e
   }
 };

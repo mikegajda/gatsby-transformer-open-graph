@@ -117,10 +117,16 @@ exports.onCreateNode = async ({
       })
   })
 
+if (opengraphNode && opengraphNode.id){
   createParentChildLink({
     parent: node,
     child: opengraphNode,
-  })
+  });
+}
+else {
+  return;
+}
+  
 }
 
 const createOpengraphNode = async ({
@@ -185,7 +191,7 @@ const createOpengraphNode = async ({
 
     return opengraphNode
   } catch (e) {
-    console.log(`Failed to opengraph ${url} due to ${e}. Will skip this article...`)
+    console.log(`Failed to opengraph ${url} due to ${e}. Will skip OpenGraph for this article...`)
 
     //throw e
   }
