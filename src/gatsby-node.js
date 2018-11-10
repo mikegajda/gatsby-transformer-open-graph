@@ -159,9 +159,8 @@ const createOpengraphNode = async ({
     })
 
     if (!fileNode) {
-      console.error(`Remote file node is null`, metadata.image)
-      return
-      // throw new Error(`Remote file node is null`, metadata.image)
+      //console.error(`Remote file node is null`, metadata.image)
+      throw new Error(`Remote file node is null`, metadata.image)
     }
 
     const opengraphNode = {
