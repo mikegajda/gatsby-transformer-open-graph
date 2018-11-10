@@ -139,19 +139,17 @@ const createOpengraphNode = async ({
   createNodeId
 }) => {
   try {
-    console.log('TEST process opengraph data for = ', url);
+    console.info('TEST process opengraph data for = ', url);
     const targetUrl = url;
-    const metadata = await getMetadata(targetUrl);
-
-    if (metadata.title === "Terms of Service Violation") {
-      console.log("ERROR Bloomberg TOS Violation, returning");
-      return;
-    } //console.log("metadata = ", metadata)
-
+    const metadata = await getMetadata(targetUrl); // if (metadata.title === "Terms of Service Violation"){
+    //   console.log("ERROR Bloomberg TOS Violation, returning")
+    //   return
+    // }
+    //console.log("metadata = ", metadata)
 
     let fixedImageUrl = metadata.image;
 
-    if (metadata.image.includes('wsj')) {
+    if (metadata.image && metadata.image.includes('wsj')) {
       fixedImageUrl = fixedImageUrl + '?image.jpg';
     }
 
@@ -187,7 +185,6 @@ const createOpengraphNode = async ({
     createNode(opengraphNode);
     return opengraphNode;
   } catch (e) {
-    console.log(`Failed to opengraph ${url} due to ${e}. Retrying...`);
-    throw e;
+    console.log(`Failed to opengraph ${url} due to ${e}. Will skip this article...`); //throw e
   }
 };

@@ -132,7 +132,7 @@ const createOpengraphNode = async ({
   createNodeId,
 }) => {
   try {
-    console.log('TEST process opengraph data for = ', url)
+    console.info('TEST process opengraph data for = ', url)
 
     const targetUrl = url
 
@@ -146,7 +146,7 @@ const createOpengraphNode = async ({
     //console.log("metadata = ", metadata)
 
     let fixedImageUrl = metadata.image
-    if (metadata.image.includes('wsj')) {
+    if (metadata.image && metadata.image.includes('wsj')) {
       fixedImageUrl = fixedImageUrl + '?image.jpg'
     }
 
@@ -186,8 +186,8 @@ const createOpengraphNode = async ({
 
     return opengraphNode
   } catch (e) {
-    console.log(`Failed to opengraph ${url} due to ${e}. Retrying...`)
+    console.log(`Failed to opengraph ${url} due to ${e}. Will skip this article...`)
 
-    throw e
+    //throw e
   }
 }
