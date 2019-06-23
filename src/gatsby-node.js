@@ -193,6 +193,21 @@ const createOpengraphNode = async ({
   } catch (e) {
     console.log(`Failed to opengraph ${url} due to ${e}. Will skip OpenGraph for this article...`)
 
+    const opengraphNode = {
+      id: createNodeId(`${parent} >>> Opengraph`),
+      url,
+      parent,
+      children: [],
+      internal: {
+        type: `Opengraph`,
+      }
+    }
+
+    opengraphNode.internal.contentDigest = createContentDigest(opengraphNode)
+
+    createNode(opengraphNode)
+
+    return opengraphNode
     //throw e
   }
 }
