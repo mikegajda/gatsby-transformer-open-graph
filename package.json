@@ -1,6 +1,6 @@
 {
   "name": "gatsby-transformer-open-graph",
-  "description": "Gatsby plugin to add Oepn Graph data to MarkdownRemark nodes",
+  "description": "Gatsby plugin to add Open Graph data to MarkdownRemark nodes",
   "version": "2.1.4",
   "author": "Mike Gajda <npm@mikegajda.com>",
   "bugs": {
